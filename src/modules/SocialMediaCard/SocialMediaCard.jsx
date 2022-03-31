@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { RRSS } from '../../mocks/data'
 import {
+  BorderColor,
   SocialMediaCardStyled,
   SocialMediaCardTextContainer,
-  UserName,
 } from './SocialMediaCard.style'
 import { ReactComponent as FB } from '../../assets/icon-facebook.svg'
 import { ReactComponent as IG } from '../../assets/icon-instagram.svg'
@@ -12,6 +12,7 @@ import { ReactComponent as TW } from '../../assets/icon-twitter.svg'
 import { ReactComponent as YT } from '../../assets/icon-youtube.svg'
 import CardTodaysFollowers from '../../components/CardTodaysFollowers'
 import CardTotalFollowers from '../../components/CardTotalFollowers'
+import CardSocialMediaUser from '../../components/CardSocialMediaUser'
 
 const SocialMediaCard = ({ cardData }) => {
   const { followers_perDay, followers_totalNumber, icon, user_name } = cardData
@@ -21,26 +22,26 @@ const SocialMediaCard = ({ cardData }) => {
   const iconSelect = (icon) => {
     switch (icon) {
       case RRSS[0]:
-        return <FB style={{ verticalAlign: 'middle' }} />
+        return {
+          component: <FB style={{ verticalAlign: 'middle' }} />,
+          background: 'hsl(195, 100%, 50%)',
+        }
       case RRSS[1]:
-        return <TW style={{ verticalAlign: 'middle' }} />
+        return {
+          component: <TW style={{ verticalAlign: 'middle' }} />,
+          background: 'hsl(203, 89%, 53%)',
+        }
       case RRSS[2]:
-        return <IG style={{ verticalAlign: 'middle' }} />
+        return {
+          component: <IG style={{ verticalAlign: 'middle' }} />,
+          background:
+            'linear-gradient(90deg, hsl(37, 97%, 70%) 0%,  hsl(329, 70%, 58%) 100%)',
+        }
       case RRSS[3]:
-        return <YT style={{ verticalAlign: 'middle' }} />
-    }
-  }
-
-  const backgroundSelect = (icon) => {
-    switch (icon) {
-      case RRSS[0]:
-        return 'hsl(195, 100%, 50%)'
-      case RRSS[1]:
-        return 'hsl(203, 89%, 53%)'
-      case RRSS[2]:
-        return 'linear-gradient(90deg, hsl(37, 97%, 70%) 0%,  hsl(329, 70%, 58%) 100%);'
-      case RRSS[3]:
-        return 'hsl(348, 97%, 39%)'
+        return {
+          component: <YT style={{ verticalAlign: 'middle' }} />,
+          background: 'hsl(348, 97%, 39%)',
+        }
     }
   }
 
@@ -49,6 +50,7 @@ const SocialMediaCard = ({ cardData }) => {
     if (num.length >= 5) return `${num.slice(0, num.length - 3)}k`
     return number
   }
+
   const formattedFollowersPerDay = (number) => {
     if (number < 0) return number.toString().replace('-', '')
     return number
@@ -56,13 +58,13 @@ const SocialMediaCard = ({ cardData }) => {
 
   return (
     cardData && (
-      <SocialMediaCardStyled background={backgroundSelect(icon)}>
-        <div />
+      <SocialMediaCardStyled>
+        <BorderColor background={iconSelect(icon).background} />
         <SocialMediaCardTextContainer>
-          <div>
-            {iconSelect(icon)}
-            <UserName>{user_name}</UserName>
-          </div>
+          <CardSocialMediaUser
+            type={iconSelect(icon).component}
+            user={user_name}
+          />
           <CardTotalFollowers
             totalFollowers={formattedTotalFollowers(followers_totalNumber)}
             isYoutube={isYoutube}
