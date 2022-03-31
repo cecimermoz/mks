@@ -1,5 +1,7 @@
-function App() {
-  return <div className='App'>Claro que si</div>;
+import DashboardContainer from './modules/DashboardContainer'
+
+const App = () => {
+  return <DashboardContainer />
 }
 
-export default App;
+export default App
