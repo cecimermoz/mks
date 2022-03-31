@@ -1,11 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import DashboardContainerStyled from './DashboardContainer.style'
+import DashboardHeader from '../../components/DashboardHeader'
+import SocialMediaCardContainer from '../SocialMediaCardContainer'
 
 const DashboardContainer = () => {
-  return <DashboardContainerStyled>Hola hola</DashboardContainerStyled>
+  return (
+    <DashboardContainerStyled>
+      <DashboardHeader />
+      <SocialMediaCardContainer />
+    </DashboardContainerStyled>
+  )
 }
-
-DashboardContainer.propTypes = {}
 
 export default DashboardContainer
