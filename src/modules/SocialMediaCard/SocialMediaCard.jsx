@@ -45,13 +45,9 @@ const SocialMediaCard = ({ cardData }) => {
     }
   }
 
-  const formattedTotalFollowers = (number) => {
+  const formattedFollowerNumber = (number) => {
     let num = number.toString()
     if (num.length >= 5) return `${num.slice(0, num.length - 3)}k`
-    return number
-  }
-
-  const formattedFollowersPerDay = (number) => {
     if (number < 0) return number.toString().replace('-', '')
     return number
   }
@@ -66,11 +62,11 @@ const SocialMediaCard = ({ cardData }) => {
             user={user_name}
           />
           <CardTotalFollowers
-            totalFollowers={formattedTotalFollowers(followers_totalNumber)}
+            totalFollowers={formattedFollowerNumber(followers_totalNumber)}
             isYoutube={isYoutube}
           />
           <CardTodaysFollowers
-            followers={formattedFollowersPerDay(followers_perDay)}
+            followers={formattedFollowerNumber(followers_perDay)}
             isNegative={isNegative}
             isYoutube={isYoutube}
           />
