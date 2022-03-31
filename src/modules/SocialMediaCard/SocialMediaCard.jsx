@@ -19,7 +19,6 @@ const SocialMediaCard = ({ cardData }) => {
   const isYoutube = icon === RRSS[3]
 
   const iconSelect = (icon) => {
-    let i
     switch (icon) {
       case RRSS[0]:
         return <FB style={{ verticalAlign: 'middle' }} />
@@ -30,7 +29,19 @@ const SocialMediaCard = ({ cardData }) => {
       case RRSS[3]:
         return <YT style={{ verticalAlign: 'middle' }} />
     }
-    return i
+  }
+
+  const backgroundSelect = (icon) => {
+    switch (icon) {
+      case RRSS[0]:
+        return 'hsl(195, 100%, 50%)'
+      case RRSS[1]:
+        return 'hsl(203, 89%, 53%)'
+      case RRSS[2]:
+        return 'linear-gradient(90deg, hsl(37, 97%, 70%) 0%,  hsl(329, 70%, 58%) 100%);'
+      case RRSS[3]:
+        return 'hsl(348, 97%, 39%)'
+    }
   }
 
   const formattedTotalFollowers = (number) => {
@@ -45,7 +56,7 @@ const SocialMediaCard = ({ cardData }) => {
 
   return (
     cardData && (
-      <SocialMediaCardStyled>
+      <SocialMediaCardStyled background={backgroundSelect(icon)}>
         <div />
         <SocialMediaCardTextContainer>
           <div>

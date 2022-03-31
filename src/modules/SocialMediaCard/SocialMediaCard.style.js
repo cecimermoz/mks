@@ -8,7 +8,7 @@ const SocialMediaCardStyled = styled.div`
   & > div:first-of-type {
     border-radius: 0.5rem 0.5rem 0 0;
     height: 0.25rem;
-    background-color: red; /*TODO: make dinamic */
+    background: ${(props) => props.background};
   }
   &:hover {
     background: hsl(228, 28%, 20%);
