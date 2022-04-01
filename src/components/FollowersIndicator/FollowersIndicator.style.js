@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const CardTodaysFollowersStyled = styled.div`
+const FollowersIndicatorStyled = styled.div`
   color: ${({ isNegative }) =>
     isNegative ? 'hsl(356, 69%, 56%)' : 'hsl(163, 72%, 41%)'};
   & > svg {
@@ -12,4 +12,4 @@ const CardTodaysFollowersStyled = styled.div`
     margin-right: 0.5rem;
   }
 `
-export default CardTodaysFollowersStyled
+export default FollowersIndicatorStyled

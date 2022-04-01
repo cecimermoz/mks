@@ -5,7 +5,7 @@ import {
   SocialMediaCardStyled,
   SocialMediaCardTextContainer,
 } from './SocialMediaCard.style'
-import CardTodaysFollowers from '../../components/CardTodaysFollowers'
+import FollowersIndicator from '../../components/FollowersIndicator'
 import CardTotalFollowers from '../../components/CardTotalFollowers'
 import CardSocialMediaUser from '../../components/CardSocialMediaUser'
 import { DashboardContext } from '../../context/dashContext'
@@ -30,10 +30,11 @@ const SocialMediaCard = ({ cardData }) => {
             totalFollowers={formattedFollowerNumber(followers_totalNumber)}
             isYoutube={isYoutube}
           />
-          <CardTodaysFollowers
+          <FollowersIndicator
             followers={formattedFollowerNumber(followers_perDay)}
             isNegative={isNegative}
             isYoutube={isYoutube}
+            isToday
           />
         </SocialMediaCardTextContainer>
       </SocialMediaCardStyled>

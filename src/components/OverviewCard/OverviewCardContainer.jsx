@@ -1,20 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import { OverviewCardStyled } from './OverviewCardContainer.style'
+import {
+  OverviewCardStyled,
+  OverviewInfoStyled,
+} from './OverviewCardContainer.style'
+import { DashboardContext } from '../../context/dashContext'
+import FollowersIndicator from '../FollowersIndicator'
 
 const OverviewCard = ({ cardData }) => {
-  const { rrss_description, rrss_type, percent, count } = cardData
+  const { rrss_description, percent, rrss_type, count, icon } = cardData
+  const { iconSelect, formattedFollowerNumber, rrss } =
+    useContext(DashboardContext)
+  const iconName = iconSelect(rrss_type).name
+  const iconImg = iconSelect(rrss_type).component
+  const isNegative = percent < 0
+  const isYoutube = rrss_type === rrss[3]
 
   return (
     <OverviewCardStyled>
       {/*TODO: Make dinamic arialabel */}
-      <h4 aria-label={`${rrss_type} ${rrss_description}`}>
-        {rrss_description} {rrss_type}
+      <h4 aria-label={`${iconName} ${rrss_description}`}>
+        {rrss_description} {iconImg}
       </h4>
-      <div>
-        <span>{count}</span>
-        <span>{percent}</span>
-      </div>
+      <OverviewInfoStyled>
+        <span>{formattedFollowerNumber(count)}</span>
+        <FollowersIndicator
+          isNegative={isNegative}
+          followers={formattedFollowerNumber(percent)}
+          isYoutube={isYoutube}
+        />
+      </OverviewInfoStyled>
     </OverviewCardStyled>
   )
 }

@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import OverviewCard from '../../components/OverviewCard/OverviewCardContainer'
 import OverviewCardContainerStyled from './OverviewCardContainer.style'
+import { DashboardContext } from '../../context/dashContext'
 
 const OverviewCardContainer = ({ fetchData }) => {
-  console.log(fetchData)
+  const { iconSelect } = useContext(DashboardContext)
+
   return (
-    <>
+    <section style={{ marginTop: '2.5rem' }}>
       <h2>Overview - Today</h2>
       <OverviewCardContainerStyled>
         {fetchData.map((e) => (
@@ -16,7 +18,7 @@ const OverviewCardContainer = ({ fetchData }) => {
           />
         ))}
       </OverviewCardContainerStyled>
-    </>
+    </section>
   )
 }
 

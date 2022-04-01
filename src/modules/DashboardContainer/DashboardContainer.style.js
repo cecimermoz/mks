@@ -6,8 +6,11 @@ const DashboardContainerStyled = styled.div`
   height: 100vh;
   background: hsl(230, 17%, 14%);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   /*temporary*/
-  color: white;
+  color: hsl(0, 0%, 100%);
 `
 
 export default DashboardContainerStyled

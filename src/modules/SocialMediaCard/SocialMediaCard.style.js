@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
 
 const SocialMediaCardStyled = styled.div`
-  max-width: 330px;
-  flex: 1;
+  flex-basis: 23%;
+  box-sizing: border-box;
   text-align: center;
   background: hsl(232, 19%, 15%);
+  /*background: pink;*/
   border-radius: 0.5rem;
   &:hover {
     background: hsl(228, 28%, 20%);
