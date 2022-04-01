@@ -20,7 +20,7 @@ const SocialMediaCard = ({ cardData }) => {
 
   return (
     cardData && (
-      <SocialMediaCardStyled onClick={() => handleOpenModal()}>
+      <SocialMediaCardStyled onClick={() => handleOpenModal(cardData)}>
         <BorderColor background={iconSelect(icon).background} />
         <SocialMediaCardTextContainer>
           <CardSocialMediaUser

@@ -17,7 +17,7 @@ const OverviewCard = ({ cardData }) => {
   const isYoutube = rrss_type === rrss[3]
 
   return (
-    <OverviewCardStyled onClick={() => handleOpenModal()}>
+    <OverviewCardStyled onClick={() => handleOpenModal(cardData)}>
       {/*TODO: Make dinamic arialabel */}
       <h4 aria-label={`${iconName} ${rrss_description}`}>
         {rrss_description} {iconImg}
