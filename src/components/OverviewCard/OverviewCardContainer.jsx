@@ -9,7 +9,7 @@ import FollowersIndicator from '../FollowersIndicator'
 
 const OverviewCard = ({ cardData }) => {
   const { rrss_description, percent, rrss_type, count, icon } = cardData
-  const { iconSelect, formattedFollowerNumber, rrss } =
+  const { iconSelect, formattedFollowerNumber, rrss, handleOpenModal } =
     useContext(DashboardContext)
   const iconName = iconSelect(rrss_type).name
   const iconImg = iconSelect(rrss_type).component
@@ -17,7 +17,7 @@ const OverviewCard = ({ cardData }) => {
   const isYoutube = rrss_type === rrss[3]
 
   return (
-    <OverviewCardStyled>
+    <OverviewCardStyled onClick={() => handleOpenModal()}>
       {/*TODO: Make dinamic arialabel */}
       <h4 aria-label={`${iconName} ${rrss_description}`}>
         {rrss_description} {iconImg}

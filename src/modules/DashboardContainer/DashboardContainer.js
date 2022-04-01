@@ -5,15 +5,18 @@ import SocialMediaCardContainer from '../SocialMediaCardContainer'
 
 import OverviewCardContainer from '../OverviewCardContainer/OverviewCardContainer'
 import { DashboardContext } from '../../context/dashContext'
+import Modalcontainer from '../ModalContainer/ModalContainer'
 
 const DashboardContainer = () => {
-  const { fetchedData, fetchedOverviewData } = useContext(DashboardContext)
+  const { fetchedData, fetchedOverviewData, isModalOpen } =
+    useContext(DashboardContext)
 
   return (
     <DashboardContainerStyled>
       <DashboardHeader />
       <SocialMediaCardContainer fetchData={fetchedData} />
       <OverviewCardContainer fetchData={fetchedOverviewData} />
+      {isModalOpen && <Modalcontainer />}
     </DashboardContainerStyled>
   )
 }

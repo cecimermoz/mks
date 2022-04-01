@@ -13,12 +13,17 @@ export const DashboardContext = createContext()
 
 export const Context = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [rrss, setRrss] = useState(RRSS)
   const [fetchedData, setFetchedData] = useState(MOCKED_FETCH_DATA)
   const [fetchedOverviewData, setFetchedOverviewData] = useState(
     MOCKED_FETCH_DATA_OVERVIEW_TODAY
   )
-
+  const handleOpenModal = () => setIsModalOpen(true)
+  const handleCloseModal = () => setIsModalOpen(false)
+  useEffect(() => {
+    console.log('isModalOpen', isModalOpen)
+  }, [isModalOpen])
   const iconSelect = (icon) => {
     switch (icon) {
       case rrss[0]:
@@ -62,6 +67,9 @@ export const Context = ({ children }) => {
     fetchedOverviewData,
     darkMode,
     setDarkMode,
+    isModalOpen,
+    handleOpenModal,
+    handleCloseModal,
     iconSelect,
     formattedFollowerNumber,
   }
