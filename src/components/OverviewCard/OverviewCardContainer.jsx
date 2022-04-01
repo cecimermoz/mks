@@ -4,6 +4,7 @@ import { OverviewCardStyled } from './OverviewCardContainer.style'
 
 const OverviewCard = ({ cardData }) => {
   const { rrss_description, rrss_type, percent, count } = cardData
+
   return (
     <OverviewCardStyled>
       {/*TODO: Make dinamic arialabel */}

@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import DashboardContainerStyled from './DashboardContainer.style'
 import DashboardHeader from '../../components/DashboardHeader'
 import SocialMediaCardContainer from '../SocialMediaCardContainer'
-import {
-  RRSS,
-  MOCKED_FETCH_DATA,
-  MOCKED_FETCH_DATA_OVERVIEW_TODAY,
-} from '../../mocks/data'
+
 import OverviewCardContainer from '../OverviewCardContainer/OverviewCardContainer'
+import { DashboardContext } from '../../context/dashContext'
 
 const DashboardContainer = () => {
+  const { fetchedData, fetchedOverviewData } = useContext(DashboardContext)
+
   return (
     <DashboardContainerStyled>
       <DashboardHeader />
-      <SocialMediaCardContainer fetchData={MOCKED_FETCH_DATA} />
-      <OverviewCardContainer fetchData={MOCKED_FETCH_DATA_OVERVIEW_TODAY} />
+      <SocialMediaCardContainer fetchData={fetchedData} />
+      <OverviewCardContainer fetchData={fetchedOverviewData} />
     </DashboardContainerStyled>
   )
 }
