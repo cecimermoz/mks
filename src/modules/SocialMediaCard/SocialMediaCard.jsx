@@ -12,7 +12,7 @@ import { DashboardContext } from '../../context/dashContext'
 import Modalcontainer from '../ModalContainer/ModalContainer'
 
 const SocialMediaCard = ({ cardData }) => {
-  const { rrss, iconSelect, formattedFollowerNumber, handleOpenModal } =
+  const { rrss, getSocialMediaData, formattedFollowerNumber, handleOpenModal } =
     useContext(DashboardContext)
   const { followers_perDay, followers_totalNumber, icon, user_name } = cardData
   const isNegative = followers_perDay <= 0
@@ -21,10 +21,10 @@ const SocialMediaCard = ({ cardData }) => {
   return (
     cardData && (
       <SocialMediaCardStyled onClick={() => handleOpenModal(cardData)}>
-        <BorderColor background={iconSelect(icon).background} />
+        <BorderColor background={getSocialMediaData(icon).background} />
         <SocialMediaCardTextContainer>
           <CardSocialMediaUser
-            type={iconSelect(icon).component}
+            type={getSocialMediaData(icon).component}
             user={user_name}
           />
           <CardTotalFollowers

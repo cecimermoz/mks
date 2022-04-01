@@ -20,8 +20,8 @@ export const Context = ({ children }) => {
   const [fetchedOverviewData, setFetchedOverviewData] = useState(
     MOCKED_FETCH_DATA_OVERVIEW_TODAY
   )
-  const handleOpenModal = (modalData) => {
-    setModalData(modalData)
+  const handleOpenModal = (data) => {
+    setModalData(data)
     setIsModalOpen(true)
   }
   const handleCloseModal = () => {
@@ -29,39 +29,38 @@ export const Context = ({ children }) => {
     setIsModalOpen(null)
   }
 
-  useEffect(() => {
-    console.log('modalData', modalData)
-  }, [modalData])
-
-  const iconSelect = (icon) => {
+  const getSocialMediaData = (icon) => {
     switch (icon) {
       case rrss[0]:
         return {
           component: <FB style={{ verticalAlign: 'middle' }} />,
           background: 'hsl(195, 100%, 50%)',
-          name: 'facebook',
+          name: 'Facebook',
         }
       case rrss[1]:
         return {
           component: <TW style={{ verticalAlign: 'middle' }} />,
           background: 'hsl(203, 89%, 53%)',
-          name: 'twitter',
+          name: 'Twitter',
         }
       case rrss[2]:
         return {
           component: <IG style={{ verticalAlign: 'middle' }} />,
           background:
             'linear-gradient(90deg, hsl(37, 97%, 70%) 0%,  hsl(329, 70%, 58%) 100%)',
-          name: 'instagram',
+          name: 'Instagram',
         }
       case rrss[3]:
         return {
           component: <YT style={{ verticalAlign: 'middle' }} />,
           background: 'hsl(348, 97%, 39%)',
-          name: 'youtube',
+          name: 'Youtube',
         }
     }
   }
+
+  const textByMedia = (isYoutube = false, textForYt, otherText) =>
+    isYoutube ? textForYt : otherText
 
   const formattedFollowerNumber = (number) => {
     let num = number.toString()
@@ -77,10 +76,12 @@ export const Context = ({ children }) => {
     darkMode,
     setDarkMode,
     isModalOpen,
+    modalData,
     handleOpenModal,
     handleCloseModal,
-    iconSelect,
+    getSocialMediaData,
     formattedFollowerNumber,
+    textByMedia,
   }
 
   return (

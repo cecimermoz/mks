@@ -9,10 +9,10 @@ import FollowersIndicator from '../FollowersIndicator'
 
 const OverviewCard = ({ cardData }) => {
   const { rrss_description, percent, rrss_type, count, icon } = cardData
-  const { iconSelect, formattedFollowerNumber, rrss, handleOpenModal } =
+  const { getSocialMediaData, formattedFollowerNumber, rrss, handleOpenModal } =
     useContext(DashboardContext)
-  const iconName = iconSelect(rrss_type).name
-  const iconImg = iconSelect(rrss_type).component
+  const iconName = getSocialMediaData(rrss_type).name
+  const iconImg = getSocialMediaData(rrss_type).component
   const isNegative = percent < 0
   const isYoutube = rrss_type === rrss[3]
 

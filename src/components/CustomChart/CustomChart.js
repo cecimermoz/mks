@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import { CustomChartContainer } from './CustomChart.style'
 
 const CustomChart = () => {
   const options = {
@@ -18,9 +19,9 @@ const CustomChart = () => {
     ],
   }
   return (
-    <div>
+    <CustomChartContainer>
       <HighchartsReact highcharts={Highcharts} options={options} />
-    </div>
+    </CustomChartContainer>
   )
 }
 export default CustomChart

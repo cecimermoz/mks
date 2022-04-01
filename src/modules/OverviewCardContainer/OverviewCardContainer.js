@@ -5,7 +5,7 @@ import OverviewCardContainerStyled from './OverviewCardContainer.style'
 import { DashboardContext } from '../../context/dashContext'
 
 const OverviewCardContainer = ({ fetchData }) => {
-  const { iconSelect } = useContext(DashboardContext)
+  const { getSocialMediaData } = useContext(DashboardContext)
 
   return (
     <section style={{ marginTop: '2.5rem' }}>
