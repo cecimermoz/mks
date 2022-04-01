@@ -25,22 +25,26 @@ const SocialMediaCard = ({ cardData }) => {
         return {
           component: <FB style={{ verticalAlign: 'middle' }} />,
           background: 'hsl(195, 100%, 50%)',
+          name: 'facebook',
         }
       case RRSS[1]:
         return {
           component: <TW style={{ verticalAlign: 'middle' }} />,
           background: 'hsl(203, 89%, 53%)',
+          name: 'twitter',
         }
       case RRSS[2]:
         return {
           component: <IG style={{ verticalAlign: 'middle' }} />,
           background:
             'linear-gradient(90deg, hsl(37, 97%, 70%) 0%,  hsl(329, 70%, 58%) 100%)',
+          name: 'instagram',
         }
       case RRSS[3]:
         return {
           component: <YT style={{ verticalAlign: 'middle' }} />,
           background: 'hsl(348, 97%, 39%)',
+          name: 'youtube',
         }
     }
   }

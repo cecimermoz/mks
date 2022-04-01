@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 const SocialMediaCardStyled = styled.div`
+  max-width: 330px;
   flex: 1;
   text-align: center;
   background: hsl(232, 19%, 15%);

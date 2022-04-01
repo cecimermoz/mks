@@ -7,12 +7,14 @@ import {
   MOCKED_FETCH_DATA,
   MOCKED_FETCH_DATA_OVERVIEW_TODAY,
 } from '../../mocks/data'
+import OverviewCardContainer from '../OverviewCardContainer/OverviewCardContainer'
 
 const DashboardContainer = () => {
   return (
     <DashboardContainerStyled>
       <DashboardHeader />
-      <SocialMediaCardContainer fetch_data={MOCKED_FETCH_DATA} />
+      <SocialMediaCardContainer fetchData={MOCKED_FETCH_DATA} />
+      <OverviewCardContainer fetchData={MOCKED_FETCH_DATA_OVERVIEW_TODAY} />
     </DashboardContainerStyled>
   )
 }
