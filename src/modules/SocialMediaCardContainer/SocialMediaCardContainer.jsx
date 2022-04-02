@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import SocialMediaCard from '../SocialMediaCard'
 import SocialMediaCardContainerStyled from './SocialMediaCardContainer.style'
-import { DashboardContext } from '../../context/dashContext'
 
 const SocialMediaCardContainer = ({ fetchData }) => {
   return (

@@ -1,8 +1,10 @@
 import styled from '@emotion/styled'
 
 const FollowersIndicatorStyled = styled.div`
-  color: ${({ isNegative }) =>
-    isNegative ? 'hsl(356, 69%, 56%)' : 'hsl(163, 72%, 41%)'};
+  color: ${(props) =>
+    props.isNegative
+      ? props.theme.generals.negative
+      : props.theme.generals.positive};
   & > svg {
     margin-right: 0.5rem;
     vertical-align: middle;

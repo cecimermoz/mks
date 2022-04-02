@@ -11,11 +11,11 @@ const HeaderText = styled.div`
 const H1Styled = styled.h1`
   margin: 0;
   font-size: 1.5rem;
-  color: hsl(0, 0%, 100%);
+  color: ${(props) => props.theme.primaryText};
 `
 const SubTextStyled = styled.span`
   font-size: 0.75rem;
-  color: hsl(228, 34%, 66%);
+  color: ${(props) => props.theme.secondaryText};
 `
 
 const ModeSwitch = styled.div`

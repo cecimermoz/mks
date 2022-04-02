@@ -2,17 +2,17 @@ import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import CustomChart from '../../components/CustomChart'
 import FollowersIndicator from '../../components/FollowersIndicator'
-
 import { DashboardContext } from '../../context/dashContext'
 import {
   ModalBackground,
+  ModalChart,
   ModalStyled,
   ModalTextStyled,
+  ModalTitle,
 } from './ModalContainer.style'
 
 const Modalcontainer = () => {
   const {
-    rrss,
     isModalOpen,
     modalData,
     handleCloseModal,
@@ -34,7 +34,7 @@ const Modalcontainer = () => {
         onClick={() => handleCloseModal()}
       />
       <ModalStyled>
-        <div style={{ padding: '1rem 4rem' }}>
+        <ModalTitle>
           <h2>
             {isYoutube
               ? `${iconMediaData.name} suscribers`
@@ -47,9 +47,8 @@ const Modalcontainer = () => {
           >
             &times;
           </span>
-          <span>
-            {iconMediaData.component} {`${modalData.user_name}`}
-          </span>
+          {iconMediaData.component}
+          <span datatype="user-name">{`${modalData.user_name}`}</span>
           <ModalTextStyled>
             {/*Followers in total */}
             <ModalTextStyled>
@@ -95,16 +94,10 @@ const Modalcontainer = () => {
               </span>
             </ModalTextStyled>
           </ModalTextStyled>
-        </div>
-        <div
-          style={{
-            backgroundColor: 'hsl(230, 17%, 14%)',
-            padding: '2rem',
-            boxSizing: 'border-box',
-          }}
-        >
-          <CustomChart chartData={modalData.chart_data} />
-        </div>
+        </ModalTitle>
+        <ModalChart>
+          <CustomChart chartData={modalData.chart_data} isYoutube={isYoutube} />
+        </ModalChart>
       </ModalStyled>
     </>,
     document.getElementById('modal-root')

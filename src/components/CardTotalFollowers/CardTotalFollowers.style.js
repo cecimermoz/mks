@@ -12,7 +12,7 @@ const CardTotalFollowersStyled = styled.div`
     letter-spacing: 0.5rem;
     margin-left: 1rem;
     font-weight: 400;
-    color: hsl(228, 34%, 66%);
+    color: ${(props) => props.theme.secondaryText};
   }
 `
 export default CardTotalFollowersStyled

@@ -1,19 +1,16 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
+import CardSocialMediaUser from '../../components/CardSocialMediaUser'
+import CardTotalFollowers from '../../components/CardTotalFollowers'
+import FollowersIndicator from '../../components/FollowersIndicator'
+import { DashboardContext } from '../../context/dashContext'
 import {
   BorderColor,
   SocialMediaCardStyled,
   SocialMediaCardTextContainer,
 } from './SocialMediaCard.style'
-import FollowersIndicator from '../../components/FollowersIndicator'
-import CardTotalFollowers from '../../components/CardTotalFollowers'
-import CardSocialMediaUser from '../../components/CardSocialMediaUser'
-import { DashboardContext } from '../../context/dashContext'
-import Modalcontainer from '../ModalContainer/ModalContainer'
 
 const SocialMediaCard = ({ cardData }) => {
   const {
-    rrss,
     getSocialMediaData,
     formattedFollowerNumber,
     handleOpenModal,

@@ -18,11 +18,16 @@ const InputCheck = styled.input`
   height: 0;
 
   &:checked + span {
-    background-color: #2196f3;
+    background: linear-gradient(
+      90deg,
+      hsl(210, 78%, 56%) 0%,
+      hsl(146, 68%, 55%) 100%
+    );
   }
 
   &:focus + span {
-    box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 1px
+      linear-gradient(90deg, hsl(210, 78%, 56%) 0%, hsl(146, 68%, 55%) 100%);
   }
 
   &:checked + span:before {
@@ -38,7 +43,7 @@ const Slider = styled.span`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: hsl(230, 22%, 74%);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   &:before {

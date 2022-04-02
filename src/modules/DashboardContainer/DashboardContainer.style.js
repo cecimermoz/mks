@@ -4,13 +4,15 @@ const DashboardContainerStyled = styled.div`
   width: 100%;
   max-width: 1440px;
   height: 100vh;
-  background: ${(props) => props.theme.primary};
+  font-family: ${(props) => props.theme.generals.fontFamily};
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /*temporary*/
-  color: hsl(0, 0%, 100%);
+  color: ${(props) => props.theme.primaryText};
+`
+const DashboardBG = styled.div`
+  background: ${(props) => props.theme.background};
 `
 
-export default DashboardContainerStyled
+export { DashboardBG, DashboardContainerStyled }

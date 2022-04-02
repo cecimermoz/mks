@@ -4,7 +4,7 @@ import { SocialMediaCardStyled } from '../../modules/SocialMediaCard/SocialMedia
 const OverviewCardStyled = styled(SocialMediaCardStyled)`
   padding: 2rem 2rem 2rem 1.5rem;
   > h4 {
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.75rem 0;
     display: flex;
     justify-content: space-between;
   }
@@ -14,7 +14,7 @@ const OverviewInfoStyled = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   > span {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
   }
 `

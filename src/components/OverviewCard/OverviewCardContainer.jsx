@@ -1,21 +1,15 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
+import { DashboardContext } from '../../context/dashContext'
+import FollowersIndicator from '../FollowersIndicator'
 import {
   OverviewCardStyled,
   OverviewInfoStyled,
 } from './OverviewCardContainer.style'
-import { DashboardContext } from '../../context/dashContext'
-import FollowersIndicator from '../FollowersIndicator'
 
 const OverviewCard = ({ cardData }) => {
   const { rrss_description, percent, rrss_type, count } = cardData
-  const {
-    getSocialMediaData,
-    formattedFollowerNumber,
-    rrss,
-    handleOpenModal,
-    checkIfIsYoutube,
-  } = useContext(DashboardContext)
+  const { getSocialMediaData, formattedFollowerNumber, checkIfIsYoutube } =
+    useContext(DashboardContext)
   const iconName = getSocialMediaData(rrss_type).name
   const iconImg = getSocialMediaData(rrss_type).component
   const isNegative = percent < 0
