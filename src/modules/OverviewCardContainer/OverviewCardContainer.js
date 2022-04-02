@@ -1,12 +1,9 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
 import OverviewCard from '../../components/OverviewCard/OverviewCardContainer'
-import OverviewCardContainerStyled from './OverviewCardContainer.style'
 import { DashboardContext } from '../../context/dashContext'
+import OverviewCardContainerStyled from './OverviewCardContainer.style'
 
 const OverviewCardContainer = ({ fetchData }) => {
-  const { getSocialMediaData } = useContext(DashboardContext)
-
   return (
     <section style={{ marginTop: '2.5rem' }}>
       <h2>Overview - Today</h2>

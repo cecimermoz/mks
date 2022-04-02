@@ -1,28 +1,14 @@
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Modal from '@mui/material/Modal'
-import Typography from '@mui/material/Typography'
 import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import CustomChart from '../../components/CustomChart'
+import FollowersIndicator from '../../components/FollowersIndicator'
 
 import { DashboardContext } from '../../context/dashContext'
-import { ModalcontainerStyled } from './ModalContainer.style'
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '80%',
-  maxWidth: 'calc(1440px - 4rem)',
-  margin: '2rem',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  borderRadius: '1.5rem',
-  p: 4,
-}
+import {
+  ModalBackground,
+  ModalStyled,
+  ModalTextStyled,
+} from './ModalContainer.style'
 
 const Modalcontainer = () => {
   const {
@@ -33,86 +19,94 @@ const Modalcontainer = () => {
     getSocialMediaData,
     formattedFollowerNumber,
     textByMedia,
+    checkIfIsYoutube,
   } = useContext(DashboardContext)
-  const iconMediaData = getSocialMediaData(modalData.icon)
-  const isYoutube = modalData.icon === rrss[3]
+  const iconMediaData = modalData.icon
+    ? getSocialMediaData(modalData.icon)
+    : getSocialMediaData(modalData.rrss_type)
+  const isYoutube = checkIfIsYoutube(modalData.icon)
   const text = (data) => (data < 0 ? 'Less' : 'New')
 
-  console.log('modalData', modalData)
-  console.log('iconMediaData', iconMediaData)
-
   return ReactDOM.createPortal(
-    <ModalcontainerStyled isModalOpen={isModalOpen}>
-      <Box sx={style} onClick={() => handleCloseModal()}>
-        <Typography
-          aria-label={`${iconMediaData.name} followers`}
-          variant="h2"
-          component="h2"
-        >
-          {isYoutube
-            ? `${iconMediaData.name} suscribers`
-            : `${iconMediaData.name} followers`}
-        </Typography>
-        <Typography
-          aria-label={`${iconMediaData.user_name} contact`}
-          variant="h5"
-          component="span"
-        >
-          {iconMediaData.component} {`${modalData.user_name}`}
-        </Typography>
-        {/*Followers in total */}
-        <div aria-label={`${modalData.followers_totalNumber} total followers`}>
-          <Typography variant="h5" component="span">
-            {modalData.followers_totalNumber}
-          </Typography>
-          <Typography component="span">Total followers</Typography>
+    <>
+      <ModalBackground
+        isModalOpen={isModalOpen}
+        onClick={() => handleCloseModal()}
+      />
+      <ModalStyled>
+        <div style={{ padding: '1rem 4rem' }}>
+          <h2>
+            {isYoutube
+              ? `${iconMediaData.name} suscribers`
+              : `${iconMediaData.name} followers`}
+          </h2>
+          <span
+            aria-label="Close modal"
+            datatype="close-modal"
+            onClick={() => handleCloseModal()}
+          >
+            &times;
+          </span>
+          <span>
+            {iconMediaData.component} {`${modalData.user_name}`}
+          </span>
+          <ModalTextStyled>
+            {/*Followers in total */}
+            <ModalTextStyled>
+              <span datatype="number">{modalData.followers_totalNumber}</span>
+              <span datatype="text">
+                Total
+                <br />
+                followers
+              </span>
+            </ModalTextStyled>
+            {/*Followers in the last 10 days */}
+            <ModalTextStyled>
+              <FollowersIndicator
+                isNegative={modalData.followers_lastDays < 0}
+                followers={modalData.followers_lastDays}
+                isYoutube={isYoutube}
+                isToday={false}
+                datatype="number"
+              />
+              <span datatype="text">
+                {`New ${textByMedia(isYoutube, 'suscribers', 'followers')}`}
+                <br />
+                in the past 10 days
+              </span>
+            </ModalTextStyled>
+            {/*Followers per day */}
+            <ModalTextStyled>
+              <FollowersIndicator
+                isNegative={modalData.followers_perDay < 0}
+                followers={formattedFollowerNumber(modalData.followers_perDay)}
+                isYoutube={isYoutube}
+                isToday={false}
+                datatype="number"
+              />
+              <span datatype="text">
+                {`${text(modalData.followers_perDay)} ${textByMedia(
+                  isYoutube,
+                  'suscribers',
+                  'followers'
+                )}`}
+                <br />
+                TODAY
+              </span>
+            </ModalTextStyled>
+          </ModalTextStyled>
         </div>
-        {/*Followers in the last 10 days */}
         <div
-          aria-label={`${formattedFollowerNumber(
-            modalData.followers_lastDays
-          )} ${text(modalData.followers_lastDays)} ${textByMedia(
-            isYoutube,
-            'suscribers',
-            'followers'
-          )} in the last 10 days`}
+          style={{
+            backgroundColor: 'hsl(230, 17%, 14%)',
+            padding: '2rem',
+            boxSizing: 'border-box',
+          }}
         >
-          <Typography variant="h5" component="span">
-            {formattedFollowerNumber(modalData.followers_lastDays)}
-          </Typography>
-          <Typography component="span">
-            {`New ${textByMedia(
-              isYoutube,
-              'suscribers',
-              'followers'
-            )} in the past 10 days`}
-          </Typography>
+          <CustomChart chartData={modalData.chart_data} />
         </div>
-        {/*Followers per day */}
-        <div
-          aria-label={`${formattedFollowerNumber(
-            modalData.followers_perDay
-          )} ${text(modalData.followers_perDay)} ${textByMedia(
-            isYoutube,
-            'suscribers',
-            'followers'
-          )} per day`}
-        >
-          <Typography variant="h5" component="span">
-            {formattedFollowerNumber(modalData.followers_perDay)}
-          </Typography>
-          <Typography component="span">
-            {`${text(modalData.followers_perDay)} ${textByMedia(
-              isYoutube,
-              'suscribers',
-              'followers'
-            )} in the past 10 days`}
-          </Typography>
-        </div>
-
-        <CustomChart />
-      </Box>
-    </ModalcontainerStyled>,
+      </ModalStyled>
+    </>,
     document.getElementById('modal-root')
   )
 }

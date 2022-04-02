@@ -12,11 +12,15 @@ import { DashboardContext } from '../../context/dashContext'
 import Modalcontainer from '../ModalContainer/ModalContainer'
 
 const SocialMediaCard = ({ cardData }) => {
-  const { rrss, getSocialMediaData, formattedFollowerNumber, handleOpenModal } =
-    useContext(DashboardContext)
+  const {
+    rrss,
+    getSocialMediaData,
+    formattedFollowerNumber,
+    handleOpenModal,
+    checkIfIsYoutube,
+  } = useContext(DashboardContext)
   const { followers_perDay, followers_totalNumber, icon, user_name } = cardData
   const isNegative = followers_perDay <= 0
-  const isYoutube = icon === rrss[3]
 
   return (
     cardData && (
@@ -29,13 +33,14 @@ const SocialMediaCard = ({ cardData }) => {
           />
           <CardTotalFollowers
             totalFollowers={formattedFollowerNumber(followers_totalNumber)}
-            isYoutube={isYoutube}
+            isYoutube={checkIfIsYoutube(icon)}
           />
           <FollowersIndicator
             followers={formattedFollowerNumber(followers_perDay)}
             isNegative={isNegative}
-            isYoutube={isYoutube}
+            isYoutube={checkIfIsYoutube(icon)}
             isToday
+            needPercent
           />
         </SocialMediaCardTextContainer>
       </SocialMediaCardStyled>

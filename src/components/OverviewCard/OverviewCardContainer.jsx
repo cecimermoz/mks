@@ -8,16 +8,20 @@ import { DashboardContext } from '../../context/dashContext'
 import FollowersIndicator from '../FollowersIndicator'
 
 const OverviewCard = ({ cardData }) => {
-  const { rrss_description, percent, rrss_type, count, icon } = cardData
-  const { getSocialMediaData, formattedFollowerNumber, rrss, handleOpenModal } =
-    useContext(DashboardContext)
+  const { rrss_description, percent, rrss_type, count } = cardData
+  const {
+    getSocialMediaData,
+    formattedFollowerNumber,
+    rrss,
+    handleOpenModal,
+    checkIfIsYoutube,
+  } = useContext(DashboardContext)
   const iconName = getSocialMediaData(rrss_type).name
   const iconImg = getSocialMediaData(rrss_type).component
   const isNegative = percent < 0
-  const isYoutube = rrss_type === rrss[3]
 
   return (
-    <OverviewCardStyled onClick={() => handleOpenModal(cardData)}>
+    <OverviewCardStyled>
       {/*TODO: Make dinamic arialabel */}
       <h4 aria-label={`${iconName} ${rrss_description}`}>
         {rrss_description} {iconImg}
@@ -27,7 +31,8 @@ const OverviewCard = ({ cardData }) => {
         <FollowersIndicator
           isNegative={isNegative}
           followers={formattedFollowerNumber(percent)}
-          isYoutube={isYoutube}
+          isYoutube={checkIfIsYoutube(rrss_type)}
+          needPercent
         />
       </OverviewInfoStyled>
     </OverviewCardStyled>

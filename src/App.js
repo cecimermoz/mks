@@ -1,14 +1,14 @@
 import { ThemeProvider } from '@emotion/react'
-import { Context } from './context/dashContext'
+import { useContext } from 'react'
+import { Context, DashboardContext } from './context/dashContext'
 import DashboardContainer from './modules/DashboardContainer'
-import generalTheme from './theme/generalTheme'
+import { darkTheme, lightTheme } from './theme/generalTheme'
 
 const App = () => {
+  const darkMode = useContext(DashboardContext)
   return (
     <Context>
-      <ThemeProvider theme={generalTheme}>
-        <DashboardContainer />
-      </ThemeProvider>
+      <DashboardContainer />
     </Context>
   )
 }

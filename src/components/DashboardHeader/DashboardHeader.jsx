@@ -1,8 +1,5 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import FormGroup from '@mui/material/FormGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Switch from '@mui/material/Switch'
 import {
   DashboardHeaderStyled,
   H1Styled,
@@ -11,6 +8,7 @@ import {
   SubTextStyled,
 } from './DashboardHeader.style'
 import { DashboardContext } from '../../context/dashContext'
+import Switch from '../Switch'
 
 const DashboardHeader = () => {
   const { darkMode, setDarkMode } = useContext(DashboardContext)
@@ -22,22 +20,7 @@ const DashboardHeader = () => {
         <SubTextStyled>Total Followers: 23,004</SubTextStyled>
       </HeaderText>
       <ModeSwitch>
-        <FormGroup>
-          <FormControlLabel
-            value="start"
-            control={
-              <Switch
-                color="primary"
-                defaultChecked={darkMode}
-                onChange={() => setDarkMode(!darkMode)}
-              />
-            }
-            label="Dark Mode"
-            labelPlacement="start"
-            /* TODO: Estilado */
-            sx={{ fontWeight: '700' }}
-          />
-        </FormGroup>
+        <Switch labelText="Dark Mode" set={setDarkMode} state={darkMode} />
       </ModeSwitch>
     </DashboardHeaderStyled>
   )

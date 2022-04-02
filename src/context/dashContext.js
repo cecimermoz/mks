@@ -20,6 +20,11 @@ export const Context = ({ children }) => {
   const [fetchedOverviewData, setFetchedOverviewData] = useState(
     MOCKED_FETCH_DATA_OVERVIEW_TODAY
   )
+
+  useEffect(() => {
+    console.log('darkmode', darkMode)
+  }, [darkMode])
+
   const handleOpenModal = (data) => {
     setModalData(data)
     setIsModalOpen(true)
@@ -59,6 +64,8 @@ export const Context = ({ children }) => {
     }
   }
 
+  const checkIfIsYoutube = (rrssName) => rrssName === rrss[3]
+
   const textByMedia = (isYoutube = false, textForYt, otherText) =>
     isYoutube ? textForYt : otherText
 
@@ -82,6 +89,7 @@ export const Context = ({ children }) => {
     getSocialMediaData,
     formattedFollowerNumber,
     textByMedia,
+    checkIfIsYoutube,
   }
 
   return (

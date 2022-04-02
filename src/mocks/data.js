@@ -6,6 +6,7 @@ const MOCKED_FETCH_DATA = [
     followers_perDay: 12,
     followers_lastDays: 120,
     user_name: '@nathanf',
+    chart_data: [10, 24, 67, 12, 5, 37, 28, 16, 17, 12],
   },
   {
     icon: RRSS[1],
@@ -13,6 +14,7 @@ const MOCKED_FETCH_DATA = [
     followers_lastDays: 300,
     followers_perDay: 99,
     user_name: '@nathanf',
+    chart_data: [20, 42, 67, 22, 52, 37, 28, 16, 170, 99],
   },
   {
     icon: RRSS[2],
@@ -20,13 +22,15 @@ const MOCKED_FETCH_DATA = [
     followers_lastDays: 3504,
     followers_perDay: 1099,
     user_name: '@realnathanf',
+    chart_data: [220, 142, 267, 122, 52, 137, 128, 216, 532, 1099],
   },
   {
     icon: RRSS[3],
     followers_totalNumber: 8239,
-    followers_lastDays: 402,
+    followers_lastDays: 202,
     followers_perDay: -144,
     user_name: 'Nathan F.',
+    chart_data: [100, 102, 97, 120, 32, 27, 10, -22, -25, -144],
   },
 ]
 const MOCKED_FETCH_DATA_OVERVIEW_TODAY = [

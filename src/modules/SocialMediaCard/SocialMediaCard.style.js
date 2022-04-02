@@ -4,11 +4,11 @@ const SocialMediaCardStyled = styled.div`
   flex-basis: 23%;
   box-sizing: border-box;
   text-align: center;
-  background: hsl(232, 19%, 15%);
-  /*background: pink;*/
+  /*background: hsl(228, 28%, 20%)*/
+  background: hsl(228, 28%, 20%);
   border-radius: 0.5rem;
   &:hover {
-    background: hsl(228, 28%, 20%);
+    background: hsl(228, 28%, 25%);
     cursor: pointer;
   }
 `

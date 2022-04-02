@@ -7,11 +7,12 @@ import { useContext } from 'react'
 import { DashboardContext } from '../../context/dashContext'
 
 const FollowersIndicator = (props) => {
-  const { isNegative, followers, isYoutube, isToday } = props
+  const { isNegative, followers, isYoutube, isToday, needPercent, datatype } =
+    props
   const { textByMedia } = useContext(DashboardContext)
 
   return (
-    <FollowersIndicatorStyled isNegative={isNegative}>
+    <FollowersIndicatorStyled isNegative={isNegative} datatype={datatype}>
       {isNegative ? (
         <IconDown aria-label="Less" />
       ) : (
@@ -24,7 +25,7 @@ const FollowersIndicator = (props) => {
           'followers per day'
         )}
       >
-        {isToday ? followers : `${followers}%`}
+        {needPercent ? `${followers}%` : followers}
       </span>
       {isToday && <span>today</span>}
     </FollowersIndicatorStyled>
@@ -33,9 +34,11 @@ const FollowersIndicator = (props) => {
 
 FollowersIndicator.propTypes = {
   isToday: PropTypes.bool,
+  needPercent: PropTypes.bool,
 }
 FollowersIndicator.defaultProps = {
   isToday: false,
+  needPercent: false,
 }
 
 export default FollowersIndicator

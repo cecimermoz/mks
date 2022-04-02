@@ -21,7 +21,7 @@ const SubTextStyled = styled.span`
 const ModeSwitch = styled.div`
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `
 
