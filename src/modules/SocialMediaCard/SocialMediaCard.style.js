@@ -10,6 +10,15 @@ const SocialMediaCardStyled = styled.div`
     background: ${(props) => props.theme.primaryHover};
     cursor: pointer;
   }
+  @media (max-width: 1050px) {
+    flex-basis: 48%;
+  }
+  @media (max-width: 864px) {
+    flex-basis: 40%;
+  }
+  @media (max-width: 720px) {
+    flex-basis: 100%;
+  }
 `
 const BorderColor = styled.div`
   border-radius: 0.5rem 0.5rem 0 0;
@@ -18,7 +27,7 @@ const BorderColor = styled.div`
 }`
 
 const SocialMediaCardTextContainer = styled.div`
-  padding: 2rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

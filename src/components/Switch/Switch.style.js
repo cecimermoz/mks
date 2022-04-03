@@ -4,6 +4,10 @@ import styled from '@emotion/styled'
 const LabelText = styled.label`
   font-weight: 700;
   margin-right: 1rem;
+  @media (max-width: 720px) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 `
 
 const SwitchStyled = styled.label`

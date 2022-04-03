@@ -17,14 +17,13 @@ const DashboardContainer = () => {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <DashboardBG>
-        <DashboardContainerStyled>
-          <DashboardHeader />
-          <SocialMediaCardContainer fetchData={fetchedData} />
-          <OverviewCardContainer fetchData={fetchedOverviewData} />
-          {isModalOpen && <Modalcontainer />}
-        </DashboardContainerStyled>
-      </DashboardBG>
+      <DashboardContainerStyled>
+        <DashboardHeader />
+        <SocialMediaCardContainer fetchData={fetchedData} />
+        <OverviewCardContainer fetchData={fetchedOverviewData} />
+        {isModalOpen && <Modalcontainer />}
+      </DashboardContainerStyled>
+      <DashboardBG />
     </ThemeProvider>
   )
 }
