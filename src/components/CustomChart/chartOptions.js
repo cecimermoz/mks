@@ -9,8 +9,7 @@ const chartOptions = (chartData, isYoutube, darkMode) => ({
   chart: {
     type: 'spline',
     backgroundColor: darkMode ? darkTheme.background : lightTheme.background,
-    margin: [60, 50, 50, 60],
-    reflow: false,
+    margin: [60, 40, 50, 65],
   },
   tooltip: {
     split: true,
@@ -39,13 +38,26 @@ const chartOptions = (chartData, isYoutube, darkMode) => ({
       ? 'hsla(0, 0%, 100%,0.2)'
       : 'hsla(230, 17%, 14%, 0.2)',
     gridLineDashStyle: 'Dash',
+    startOnTick: true,
+    tickWidth: 0,
+    showFirstLabel: true,
   },
   xAxis: {
+    showFirstLabel: false,
+    startOnTick: true,
+    endOnTick: true,
     gridLineColor: darkMode
       ? 'hsla(0, 0%, 100%,0.2)'
       : 'hsla(230, 17%, 14%, 0.2)',
     gridLineWidth: 1,
     gridLineDashStyle: 'Dash',
+    labels: {
+      //distance: '75%',
+      y: 25,
+    },
+    tickWidth: 0,
+    maxPadding: 0,
+    minPadding: 0,
   },
   legend: {
     enabled: false,

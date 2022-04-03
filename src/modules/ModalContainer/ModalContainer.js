@@ -7,6 +7,7 @@ import {
   ModalBackground,
   ModalChart,
   ModalStyled,
+  ModalTextContainer,
   ModalTextStyled,
   ModalTitle,
 } from './ModalContainer.style'
@@ -50,10 +51,12 @@ const Modalcontainer = (props) => {
           </span>
           {iconMediaData.component}
           <span datatype="user-name">{`${modalData.user_name}`}</span>
-          <ModalTextStyled>
+          <ModalTextContainer>
             {/*Followers in total */}
             <ModalTextStyled>
-              <span datatype="number">{modalData.followers_totalNumber}</span>
+              <span datatype="number">
+                {formattedFollowerNumber(modalData.followers_totalNumber)}
+              </span>
               <span datatype="text">
                 Total
                 <br />
@@ -94,7 +97,7 @@ const Modalcontainer = (props) => {
                 TODAY
               </span>
             </ModalTextStyled>
-          </ModalTextStyled>
+          </ModalTextContainer>
         </ModalTitle>
         <ModalChart>
           <CustomChart chartData={modalData.chart_data} isYoutube={isYoutube} />

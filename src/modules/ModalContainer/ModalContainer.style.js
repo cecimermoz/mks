@@ -28,6 +28,9 @@ const ModalStyled = styled.div`
     top: 1rem;
     right: 2rem;
   }
+  @media (max-width: 850px) {
+    width: 90%;
+  }
 `
 const ModalTitle = styled.div`
   padding: 1rem 4rem;
@@ -37,12 +40,36 @@ const ModalTitle = styled.div`
     font-size: 0.9rem;
     font-weight: ${(props) => props.theme.generals.fontWeight[1]};
   }
+  @media (max-width: 500px) {
+    padding: 2rem;
+    > h2 {
+      margin: 0.5rem 0;
+    }
+  }
 `
 const ModalChart = styled.div`
   background-color: ${(props) => props.theme.background};
   padding: 2rem;
   box-sizing: border-box;
   border-radius: 1rem;
+  @media (max-width: 500px) {
+    display: none;
+  }
+`
+
+const ModalTextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+
+  @media (max-width: 1250px) {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 `
 
 const ModalTextStyled = styled.div`
@@ -69,6 +96,36 @@ const ModalTextStyled = styled.div`
   > span[datatype='text'] {
     margin-left: 1rem;
   }
+  @media (max-width: 1250px) {
+    flex-direction: column-reverse;
+    align-items: baseline;
+    > span[datatype='text'] {
+      margin: 0;
+    }
+  }
+  @media (max-width: 700px) {
+    flex-direction: row-reverse;
+    align-items: center;
+    text-align: right;
+    gap: 1rem;
+  }
+  @media (max-width: 500px) {
+    > div[datatype='number'] {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+    &:not(:first-of-type) {
+      margin-left: 0;
+    }
+  }
 `
 
-export { ModalBackground, ModalStyled, ModalTitle, ModalChart, ModalTextStyled }
+export {
+  ModalBackground,
+  ModalStyled,
+  ModalTitle,
+  ModalChart,
+  ModalTextStyled,
+  ModalTextContainer,
+}
