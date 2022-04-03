@@ -24,7 +24,7 @@ const CustomChart = (props) => {
 }
 
 CustomChart.propTypes = {
-  chartData: PropTypes.arrayOf(PropTypes.number).isRequired,
+  chartData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   isYoutube: PropTypes.bool,
 }
 

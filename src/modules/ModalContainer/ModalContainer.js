@@ -116,7 +116,7 @@ Modalcontainer.propTypes = {
   textByMedia: PropTypes.func.isRequired,
   isYoutube: PropTypes.bool,
   modalData: PropTypes.shape({
-    chart_data: PropTypes.arrayOf(PropTypes.number),
+    chart_data: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
     followers_lastDays: PropTypes.number,
     followers_perDay: PropTypes.number,
     followers_totalNumber: PropTypes.number,
