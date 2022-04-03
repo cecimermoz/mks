@@ -35,10 +35,19 @@ const FollowersIndicator = (props) => {
 FollowersIndicator.propTypes = {
   isToday: PropTypes.bool,
   needPercent: PropTypes.bool,
+  isNegative: PropTypes.bool,
+  followers: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  isYoutube: PropTypes.bool,
+  datatype: PropTypes.string,
 }
+
 FollowersIndicator.defaultProps = {
   isToday: false,
   needPercent: false,
+  isNegative: false,
+  isYoutube: false,
+  datatype: '',
 }
 
 export default FollowersIndicator

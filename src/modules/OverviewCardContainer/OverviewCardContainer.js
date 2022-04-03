@@ -1,32 +1,30 @@
 import React from 'react'
 import OverviewCard from '../../components/OverviewCard/OverviewCardContainer'
-import { OverviewCardContainerStyled } from './OverviewCardContainer.style'
+import PropTypes from 'prop-types'
+
+import {
+  OverviewCardContainerStyled,
+  OverviewSectionStyled,
+} from './OverviewCardContainer.style'
 
 const OverviewCardContainer = ({ fetchData }) => {
   return (
-    <div
-      style={{
-        margin: '2.5rem 0 1.25rem 0',
-        display: 'flex',
-        flexDirection: 'column',
-        flexWrap: 'wrap',
-      }}
-    >
+    <OverviewSectionStyled>
       <h2>Overview - Today</h2>
       <OverviewCardContainerStyled>
-        {fetchData.map((e) => (
+        {fetchData.map((el) => (
           <OverviewCard
-            cardData={e}
-            key={`${e.rrss_type}-${e.rrss_description}`}
+            cardData={el}
+            key={`${el.rrss_type}-${el.rrss_description}`}
           />
         ))}
       </OverviewCardContainerStyled>
-    </div>
+    </OverviewSectionStyled>
   )
 }
 
 OverviewCardContainer.propTypes = {
-  //TODO: Make it work
+  fetchData: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default OverviewCardContainer

@@ -10,14 +10,14 @@ import {
 import { DashboardContext } from '../../context/dashContext'
 import Switch from '../Switch'
 
-const DashboardHeader = () => {
+const DashboardHeader = (props) => {
   const { darkMode, setDarkMode } = useContext(DashboardContext)
-
+  const { totalFollowers } = props
   return (
     <DashboardHeaderStyled>
       <HeaderText>
         <H1Styled>Social Media Dashboard</H1Styled>
-        <SubTextStyled>Total Followers: 23,004</SubTextStyled>
+        <SubTextStyled>Total Followers: {totalFollowers}</SubTextStyled>
       </HeaderText>
       <ModeSwitch>
         <Switch labelText="Dark Mode" set={setDarkMode} state={darkMode} />
@@ -26,6 +26,8 @@ const DashboardHeader = () => {
   )
 }
 
-DashboardHeader.propTypes = {}
+DashboardHeader.propTypes = {
+  totalFollowers: PropTypes.number.isRequired,
+}
 
 export default DashboardHeader

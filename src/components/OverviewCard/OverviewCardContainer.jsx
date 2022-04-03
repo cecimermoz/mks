@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { DashboardContext } from '../../context/dashContext'
+import PropTypes from 'prop-types'
 import FollowersIndicator from '../FollowersIndicator'
 import {
   OverviewCardStyled,
@@ -33,6 +34,13 @@ const OverviewCard = ({ cardData }) => {
   )
 }
 
-OverviewCard.propTypes = {}
+OverviewCard.propTypes = {
+  cardData: PropTypes.shape({
+    rrss_description: PropTypes.string.isRequired,
+    percent: PropTypes.number.isRequired,
+    rrss_type: PropTypes.string.isRequired,
+    count: PropTypes.number.isRequired,
+  }),
+}
 
 export default OverviewCard

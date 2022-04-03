@@ -5,12 +5,12 @@ const ModalBackground = styled.div`
     props.isModalOpen ? props.theme.generals.black60 : 'none'};
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
 `
 const ModalStyled = styled.div`
   font-family: ${(props) => props.theme.generals.fontFamily};
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

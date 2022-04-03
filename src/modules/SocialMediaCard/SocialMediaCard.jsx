@@ -3,6 +3,7 @@ import CardSocialMediaUser from '../../components/CardSocialMediaUser'
 import CardTotalFollowers from '../../components/CardTotalFollowers'
 import FollowersIndicator from '../../components/FollowersIndicator'
 import { DashboardContext } from '../../context/dashContext'
+import PropTypes from 'prop-types'
 import {
   BorderColor,
   SocialMediaCardStyled,
@@ -46,11 +47,12 @@ const SocialMediaCard = ({ cardData }) => {
 }
 
 SocialMediaCard.propTypes = {
-  // TODO: make it work
-  //followers_perDay: PropTypes.number.isRequired,
-  //followers_totalNumber: PropTypes.number.isRequired,
-  //icon: PropTypes.string.isRequired,
-  //user_name: PropTypes.string.isRequired,
+  cardData: PropTypes.shape({
+    followers_perDay: PropTypes.number.isRequired,
+    followers_totalNumber: PropTypes.number.isRequired,
+    icon: PropTypes.string.isRequired,
+    user_name: PropTypes.string.isRequired,
+  }),
 }
 
 export default SocialMediaCard

@@ -19,6 +19,14 @@ const Switch = ({ labelText, state, set }) => {
   )
 }
 
-Switch.propTypes = {}
+Switch.propTypes = {
+  labelText: PropTypes.string,
+  set: PropTypes.func.isRequired,
+  state: PropTypes.bool.isRequired,
+}
+
+Switch.defaultProptypes = {
+  labelText: '',
+}
 
 export default Switch

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import CustomChart from '../../components/CustomChart'
+import PropTypes from 'prop-types'
 import FollowersIndicator from '../../components/FollowersIndicator'
-import { DashboardContext } from '../../context/dashContext'
 import {
   ModalBackground,
   ModalChart,
@@ -11,7 +11,7 @@ import {
   ModalTitle,
 } from './ModalContainer.style'
 
-const Modalcontainer = () => {
+const Modalcontainer = (props) => {
   const {
     isModalOpen,
     modalData,
@@ -19,13 +19,14 @@ const Modalcontainer = () => {
     getSocialMediaData,
     formattedFollowerNumber,
     textByMedia,
-    checkIfIsYoutube,
-  } = useContext(DashboardContext)
+    isYoutube,
+  } = props
+
   const iconMediaData = modalData.icon
     ? getSocialMediaData(modalData.icon)
     : getSocialMediaData(modalData.rrss_type)
-  const isYoutube = checkIfIsYoutube(modalData.icon)
-  const text = (data) => (data < 0 ? 'Less' : 'New')
+
+  const textByData = (data) => (data < 0 ? 'Less' : 'New')
 
   return ReactDOM.createPortal(
     <>
@@ -84,7 +85,7 @@ const Modalcontainer = () => {
                 datatype="number"
               />
               <span datatype="text">
-                {`${text(modalData.followers_perDay)} ${textByMedia(
+                {`${textByData(modalData.followers_perDay)} ${textByMedia(
                   isYoutube,
                   'suscribers',
                   'followers'
@@ -104,6 +105,25 @@ const Modalcontainer = () => {
   )
 }
 
-Modalcontainer.propTypes = {}
+Modalcontainer.propTypes = {
+  isModalOpen: PropTypes.bool.isRequired,
+  handleCloseModal: PropTypes.func.isRequired,
+  getSocialMediaData: PropTypes.func.isRequired,
+  formattedFollowerNumber: PropTypes.func.isRequired,
+  textByMedia: PropTypes.func.isRequired,
+  isYoutube: PropTypes.bool,
+  modalData: PropTypes.shape({
+    chart_data: PropTypes.arrayOf(PropTypes.number),
+    followers_lastDays: PropTypes.number,
+    followers_perDay: PropTypes.number,
+    followers_totalNumber: PropTypes.number,
+    icon: PropTypes.string,
+    user_name: PropTypes.string,
+  }).isRequired,
+}
+
+Modalcontainer.defaultProps = {
+  isYoutube: false,
+}
 
 export default Modalcontainer

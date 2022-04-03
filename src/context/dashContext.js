@@ -21,10 +21,6 @@ export const Context = ({ children }) => {
     MOCKED_FETCH_DATA_OVERVIEW_TODAY
   )
 
-  useEffect(() => {
-    console.log('darkmode', darkMode)
-  }, [darkMode])
-
   const handleOpenModal = (data) => {
     setModalData(data)
     setIsModalOpen(true)

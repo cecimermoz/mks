@@ -12,16 +12,34 @@ import {
 } from './DashboardContainer.style'
 
 const DashboardContainer = () => {
-  const { fetchedData, fetchedOverviewData, isModalOpen, darkMode } =
-    useContext(DashboardContext)
+  const {
+    fetchedData,
+    fetchedOverviewData,
+    isModalOpen,
+    darkMode,
+    modalData,
+    handleCloseModal,
+    getSocialMediaData,
+    formattedFollowerNumber,
+    textByMedia,
+  } = useContext(DashboardContext)
+
+  const modalProps = {
+    isModalOpen,
+    modalData,
+    handleCloseModal,
+    getSocialMediaData,
+    formattedFollowerNumber,
+    textByMedia,
+  }
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <DashboardContainerStyled>
-        <DashboardHeader />
+        <DashboardHeader totalFollowers={23004} />
         <SocialMediaCardContainer fetchData={fetchedData} />
         <OverviewCardContainer fetchData={fetchedOverviewData} />
-        {isModalOpen && <Modalcontainer />}
+        {isModalOpen && <Modalcontainer {...modalProps} />}
       </DashboardContainerStyled>
       <DashboardBG />
     </ThemeProvider>
