@@ -49,7 +49,7 @@ const ModalTitle = styled.div`
 `
 const ModalChart = styled.div`
   background-color: ${(props) => props.theme.background};
-  padding: 2rem;
+  padding: 2rem 1rem 2rem 2rem;
   box-sizing: border-box;
   border-radius: 1rem;
   @media (max-width: 500px) {

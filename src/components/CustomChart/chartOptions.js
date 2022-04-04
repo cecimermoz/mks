@@ -4,12 +4,16 @@ const chartOptions = (chartData, isYoutube, darkMode) => ({
   plotOptions: {
     series: {
       color: generals.purple,
+      cursor: 'pointer',
+    },
+    line: {
+      className: 'lala',
     },
   },
   chart: {
     type: 'spline',
     backgroundColor: darkMode ? darkTheme.background : lightTheme.background,
-    margin: [60, 40, 50, 65],
+    margin: [60, 60, 50, 65],
   },
   tooltip: {
     split: true,
@@ -21,6 +25,10 @@ const chartOptions = (chartData, isYoutube, darkMode) => ({
     pointFormat: `<b>{point.x}</b> new ${
       isYoutube ? 'suscribers' : 'followers'
     }`,
+    positioner: function (labelW, labelH, point) {
+      point.series.tooltipOptions.backgroundColor = 'transparent'
+      return { x: point.plotX, y: point.plotY + 30 }
+    },
     shape: 'square',
     backgroundColor: darkMode ? darkTheme.background : lightTheme.background,
     borderColor: darkMode ? darkTheme.secondaryText : lightTheme.primaryHover,
@@ -30,7 +38,13 @@ const chartOptions = (chartData, isYoutube, darkMode) => ({
       color: generals.purpleAlpha85,
     },
   },
+  colorAxis: {
+    type: 'linear',
+    marker: null,
+  },
   yAxis: {
+    tickAmount: 7,
+    lineWidth: 1,
     title: {
       enabled: false,
     },
@@ -52,7 +66,6 @@ const chartOptions = (chartData, isYoutube, darkMode) => ({
     gridLineWidth: 1,
     gridLineDashStyle: 'Dash',
     labels: {
-      //distance: '75%',
       y: 25,
     },
     tickWidth: 0,
@@ -77,6 +90,16 @@ const chartOptions = (chartData, isYoutube, darkMode) => ({
   },
   series: [
     {
+      marker: {
+        fillColor: darkMode ? darkTheme.background : lightTheme.background,
+        lineWidth: 1,
+        lineColor: null,
+        states: {
+          hover: {
+            fillColor: generals.purple,
+          },
+        },
+      },
       data: chartData,
     },
   ],
