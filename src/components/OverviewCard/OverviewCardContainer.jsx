@@ -17,7 +17,6 @@ const OverviewCard = ({ cardData }) => {
 
   return (
     <OverviewCardStyled>
-      {/*TODO: Make dinamic arialabel */}
       <h4 aria-label={`${iconName} ${rrss_description}`}>
         {rrss_description} {iconImg}
       </h4>

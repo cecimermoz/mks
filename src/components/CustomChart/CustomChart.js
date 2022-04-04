@@ -10,8 +10,6 @@ const CustomChart = (props) => {
   const { chartData, isYoutube } = props
   const { darkMode } = useContext(DashboardContext)
   // TODO: align the tooltip below the dot
-  // TODO: change grid and padding inside the chart
-  // TODO: resize del chart
 
   return (
     <CustomChartContainer>
