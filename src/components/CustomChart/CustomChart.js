@@ -9,7 +9,6 @@ import PropTypes from 'prop-types'
 const CustomChart = (props) => {
   const { chartData, isYoutube } = props
   const { darkMode } = useContext(DashboardContext)
-  // TODO: align the tooltip below the dot
 
   return (
     <CustomChartContainer>

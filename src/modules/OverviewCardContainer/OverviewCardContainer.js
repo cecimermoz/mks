@@ -1,5 +1,5 @@
 import React from 'react'
-import OverviewCard from '../../components/OverviewCard/OverviewCardContainer'
+import { OverviewCard } from '../../components'
 import PropTypes from 'prop-types'
 
 import {

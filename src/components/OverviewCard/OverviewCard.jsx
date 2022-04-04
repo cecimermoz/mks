@@ -2,10 +2,7 @@ import React, { useContext } from 'react'
 import { DashboardContext } from '../../context/dashContext'
 import PropTypes from 'prop-types'
 import FollowersIndicator from '../FollowersIndicator'
-import {
-  OverviewCardStyled,
-  OverviewInfoStyled,
-} from './OverviewCardContainer.style'
+import { OverviewCardStyled, OverviewInfoStyled } from './OverviewCard.style'
 
 const OverviewCard = ({ cardData }) => {
   const { rrss_description, percent, rrss_type, count } = cardData

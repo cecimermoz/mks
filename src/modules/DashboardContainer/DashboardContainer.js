@@ -1,11 +1,13 @@
 import { ThemeProvider } from '@emotion/react'
 import React, { useContext } from 'react'
-import DashboardHeader from '../../components/DashboardHeader'
+import { DashboardHeader } from '../../components'
 import { DashboardContext } from '../../context/dashContext'
 import { darkTheme, lightTheme } from '../../theme/generalTheme'
-import Modalcontainer from '../ModalContainer/ModalContainer'
-import OverviewCardContainer from '../OverviewCardContainer/OverviewCardContainer'
-import SocialMediaCardContainer from '../SocialMediaCardContainer'
+import {
+  SocialMediaCardContainer,
+  ModalContainer,
+  OverviewCardContainer,
+} from '../'
 import {
   DashboardBG,
   DashboardContainerStyled,
@@ -39,7 +41,7 @@ const DashboardContainer = () => {
         <DashboardHeader totalFollowers={23004} />
         <SocialMediaCardContainer fetchData={fetchedData} />
         <OverviewCardContainer fetchData={fetchedOverviewData} />
-        {isModalOpen && <Modalcontainer {...modalProps} />}
+        {isModalOpen && <ModalContainer {...modalProps} />}
       </DashboardContainerStyled>
       <DashboardBG />
     </ThemeProvider>

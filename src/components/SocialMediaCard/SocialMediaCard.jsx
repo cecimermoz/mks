@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
-import CardSocialMediaUser from '../../components/CardSocialMediaUser'
-import CardTotalFollowers from '../../components/CardTotalFollowers'
-import FollowersIndicator from '../../components/FollowersIndicator'
+import {
+  CardSocialMediaUser,
+  CardTotalFollowers,
+  FollowersIndicator,
+} from '../../components'
 import { DashboardContext } from '../../context/dashContext'
 import PropTypes from 'prop-types'
 import {

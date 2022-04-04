@@ -1,5 +1,5 @@
 import { Context } from './context/dashContext'
-import DashboardContainer from './modules/DashboardContainer'
+import { DashboardContainer } from './modules'
 
 const App = () => {
   return (

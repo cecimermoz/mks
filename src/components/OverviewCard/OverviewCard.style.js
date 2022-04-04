@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { SocialMediaCardStyled } from '../../modules/SocialMediaCard/SocialMediaCard.style'
+import { SocialMediaCardStyled } from '../../components/SocialMediaCard/SocialMediaCard.style'
 
 const OverviewCardStyled = styled(SocialMediaCardStyled)`
   padding: 2rem 2rem 2rem 1.5rem;

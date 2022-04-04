@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import SocialMediaCard from '../SocialMediaCard'
+import { SocialMediaCard } from '../../components'
 import SocialMediaCardContainerStyled from './SocialMediaCardContainer.style'
 
 const SocialMediaCardContainer = ({ fetchData }) => {

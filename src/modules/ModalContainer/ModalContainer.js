@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CustomChart from '../../components/CustomChart'
+import { CustomChart, FollowersIndicator } from '../../components'
 import PropTypes from 'prop-types'
-import FollowersIndicator from '../../components/FollowersIndicator'
 import {
   ModalBackground,
   ModalChart,
