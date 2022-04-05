@@ -20,4 +20,6 @@ You may also see any lint errors in the console.
 * Fetch with actual data from some API 
 * Add some test to it, and mantain high coverage
 
-## SneakPeak: 
+## Sneak Peek: 
+
+![Dashboard](https://user-images.githubusercontent.com/42853540/161751651-d8c55d38-e592-4828-909a-35c9995676f4.gif)
